@@ -39,14 +39,14 @@ async def main(bot: Client, message: Message):
     if phone_number_msg.text=='/cancel':
         return await phone_number_msg.reply('<b>ᴘʀᴏᴄᴇss ᴄᴀɴᴄᴇʟʟᴇᴅ !</b>')
     phone_number = phone_number_msg.text
-    client = Client(":memory:", API_ID, API_HASH)
+    client = Client(":ᴍᴇᴍᴏʀʏ:", API_ID, API_HASH)
     await client.connect()
     await phone_number_msg.reply("sᴇɴᴅɪɴɢ ᴏᴛᴘ...")
     try:
         code = await client.send_code(phone_number)
         phone_code_msg = await bot.ask(user_id, "ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ғᴏʀ ᴀɴ ᴏᴛᴘ ɪɴ ᴏғғɪᴄɪᴀʟ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴄᴄᴏᴜɴᴛ. ɪғ ʏᴏᴜ ɢᴏᴛ ɪᴛ, sᴇɴᴅ ᴏᴛᴘ ʜᴇʀᴇ ᴀғᴛᴇʀ ʀᴇᴀᴅɪɴɢ ᴛʜᴇ ʙᴇʟᴏᴡ ғᴏʀᴍᴀᴛ.\n\nɪғ ᴏᴛᴘ ɪs `12345`, **ᴘʟᴇᴀsᴇ sᴇɴᴅ ɪᴛ ᴀs** `1 2 3 4 5`.\n\n**ᴇɴᴛᴇʀ /cancel ᴛᴏ ᴄᴀɴᴄᴇʟ ᴛʜᴇ ᴘʀᴏᴄᴄᴇs**", filters=filters.text, timeout=600)
     except PhoneNumberInvalid:
-        await phone_number_msg.reply('`PHONE_NUMBER` **ɪs ɪɴᴠᴀʟɪᴅ.**')
+        await phone_number_msg.reply('`ᴘʜᴏɴᴇ_ɴᴜᴍʙᴇʀ` **ɪs ɪɴᴠᴀʟɪᴅ.**')
         return
     if phone_code_msg.text=='/cancel':
         return await phone_code_msg.reply('<b>ᴘʀᴏᴄᴇss ᴄᴀɴᴄᴇʟʟᴇᴅ !</b>')
